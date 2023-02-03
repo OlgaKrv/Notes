@@ -31,10 +31,14 @@
     },
     "extends": [
       "airbnb",
+      "plugin:vue/base",
+      "eslint:recommended",
       "plugin:vue/essential",
-      "eslint:recommended"
+      "plugin:prettier/recommended",
+      "eslint-config-prettier"
     ],
     "parserOptions": {
+      "parser": "@babel/eslint-parser",
       "ecmaVersion": 12,
       "sourceType": "module"
     },
