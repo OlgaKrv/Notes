@@ -1,0 +1,51 @@
+.btn {
+  display: inline-block;
+  padding: .8em 2em;
+  margin: 30px 0;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 30px;
+
+  // default btn
+  &.btn_defaul {
+    color: #ffffff;
+    border: 1px solid #333333;
+    background-color: #333333;
+  }
+
+  // primiry btn
+  &.btn_primary {
+    color: #2d22a2;
+    border: 1px solid #339942;
+    background-color: #339942;
+  }
+
+  // danger btn
+  &.btn_danger {
+    color: #2d22a2;
+    border: 1px solid #b54040;
+    background-color: #b53f3f;
+  }
+
+  &.btn_white {
+    color: #2d22a2;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+  }
+}
+
+button:hover {
+  box-shadow: 5px 20px 30px rgba(51, 153, 66, 0.5);
+  transform: translateY(-3px);
+}
+
+button:link,
+button:visited {
+  transition: all .2s;
+}
+
+button:active {
+  transform: translateY(0px);
+  box-shadow: 0 15px 40px rgba(51, 153, 66, 0.5);
+}
