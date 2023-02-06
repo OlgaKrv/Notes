@@ -4,15 +4,20 @@
       <label class="item_text">Заголовок</label>
       <input v-model="newNote.title" type="text" />
       <label class="item_text">Описание</label>
-      <textarea v-model="newNote.descr"></textarea>
-      <!-- <prioritis @select="newNote.type" /> -->
+      <textarea v-model="newNote.description"></textarea>
+      <priorities @select="newNote.type" />
       <button class="btn btn_primary" @click="addNote">Новая заметка</button>
     </div>
   </div>
 </template>
 
 <script>
+import priorities from "./Priorities.vue";
+
 export default {
+  components: {
+    priorities,
+  },
   data() {
     return {
       newNote: {},

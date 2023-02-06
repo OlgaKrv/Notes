@@ -4,21 +4,23 @@ export default {
       {
         id: 0,
         title: "Первая заметка",
-        descr: "Задачи с четкими дедлайнами, влияющие на последующую работу",
+        description:
+          "Задачи с четкими дедлайнами, влияющие на последующую работу",
         date: new Date(Date.now()).toLocaleDateString(),
         type: 0,
       },
       {
         id: 1,
         title: "Вторая заметка",
-        descr: "Задачи без четких сроков сдачи но влияющие на общий результат",
+        description:
+          "Задачи без четких сроков сдачи но влияющие на общий результат",
         date: new Date(Date.now()).toLocaleDateString(),
         type: 1,
       },
       {
         id: 2,
         title: "Третья заметка",
-        descr:
+        description:
           "Задачи, которые нужно сделать, но так как они не требуют ососбых" +
           " навыков, их можно делегировать",
         date: new Date(Date.now()).toLocaleDateString(),
@@ -27,7 +29,8 @@ export default {
       {
         id: 3,
         title: "Четвертая заметка",
-        descr: "Активности, которые негативно сказываются на продуктивности",
+        description:
+          "Активности, которые негативно сказываются на продуктивности",
         date: new Date(Date.now()).toLocaleDateString(),
         type: 3,
       },
@@ -38,7 +41,7 @@ export default {
       state.noteList.push({
         id: payload.id,
         title: payload.title,
-        descr: payload.descr,
+        description: payload.description,
         date: payload.date,
         type: payload.type,
       });

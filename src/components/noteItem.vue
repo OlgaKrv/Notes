@@ -1,7 +1,7 @@
 <template>
   <div class="note">
     <h1>{{ note.title }}</h1>
-    <div>{{ note.descr }}</div>
+    <div>{{ note.description }}</div>
   </div>
 </template>
 

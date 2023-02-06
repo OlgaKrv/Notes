@@ -5,7 +5,7 @@ export default {
     addedNewNote: {
       id: 0,
       title: "",
-      descr: "",
+      description: "",
       date: new Date(Date.now()).toLocaleDateString(),
       type: 0,
     },
