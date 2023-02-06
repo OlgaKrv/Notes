@@ -28,12 +28,13 @@
 export default {
   data() {
     return {
-      // selectedType: {
-      //   id: 0,
-      //   title: '',
-      //   show: false,
-      //   description: '',
-      // },
+      type: 0,
+      selectedType: {
+        id: 0,
+        title: "",
+        show: false,
+        description: "",
+      },
       types: [
         {
           id: 0,
@@ -67,10 +68,61 @@ export default {
       ],
     };
   },
-  // methods: {
-  //   prioritySelection() {
-  //     this.$emit('select', this.selectedType.id)
-  //   },
-  // },
+  methods: {
+    prioritySelection() {},
+  },
 };
 </script>
+
+<style lang="scss">
+.prioritis {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  p {
+    font-size: 18px;
+  }
+}
+.prioritis_header {
+  display: flex;
+}
+.input_radio {
+  margin-right: 15px;
+}
+.prioritis_animated-enter-active,
+.prioritis_animated-leave-active {
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s !important;
+}
+.prioritis_animated-enter-from,
+.prioritis_animated-leave-to {
+  opacity: 0.2;
+}
+.prioritis_type {
+  width: 23%;
+  padding: 18px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.25);
+  &:hover {
+    box-shadow: 10px 30px 30px rgba(51, 153, 66, 0.3);
+    transform: translate(0, -6px);
+    transition-delay: 0s !important;
+  }
+}
+input:not(input:nth-child(2)) {
+  cursor: pointer;
+}
+.prioritis_type:nth-child(1) {
+  background-color: #76d589;
+}
+.prioritis_type:nth-child(2) {
+  background-color: #64d2da;
+}
+.prioritis_type:nth-child(3) {
+  background-color: #e8ce86;
+}
+.prioritis_type:nth-child(4) {
+  background-color: #e48c8c;
+}
+</style>
