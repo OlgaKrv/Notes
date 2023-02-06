@@ -1,13 +1,12 @@
 <template>
   <div id="app" class="project-wrapper">
-    <div class="project-title">
-      <!-- blank title message -->
-      <transition name="message-animation">
-        <message v-if="isNoteTitleEmpty" />
-      </transition>
-      <newNote :isNoteTitleEmpty="isNoteTitleEmpty" />
-      <notes />
-    </div>
+    <div class="app-title">{{ title }}</div>
+    <!-- blank title message -->
+    <transition name="message-animation">
+      <message v-if="isNoteTitleEmpty" />
+    </transition>
+    <newNote :isNoteTitleEmpty="isNoteTitleEmpty" />
+    <notes />
   </div>
 </template>
 
@@ -25,24 +24,13 @@ export default {
   data() {
     return {
       title: "Блокнот",
-      isNoteTitleEmpty: false,
     };
   },
-  // methods: {
-  //   addNote() {
-  //     let {title, descr, type} = this.newNote;
-  //     this.notes.push({
-  //       title: title,
-  //       descr: descr,
-  //       date: new Date(Date.now()).toLocaleDateString(),
-  //       type: type,
-  //     });
-  //     // this.message = null;
-  //     this.newNote.title = "";
-  //     this.newNote.descr = "";
-  //     this.newNote.type = null;
-  //   },
-  // },
+  computed: {
+    isNoteTitleEmpty() {
+      return this.$store.getters.getTitleState;
+    },
+  },
 };
 </script>
 
@@ -53,7 +41,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
+}
+
+.app-title {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 32px;
+  color: #339942;
 }
 
 .message-animation-enter-active {

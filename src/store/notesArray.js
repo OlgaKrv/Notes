@@ -33,8 +33,18 @@ export default {
       },
     ],
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    getNewNote(state, payload) {
+      state.noteList.push({
+        payload,
+      });
+    },
+  },
+  actions: {
+    getNewNote({ commit }, payload) {
+      commit("getNewNote", payload);
+    },
+  },
   getters: {
     getNoteList(state) {
       return state.noteList;

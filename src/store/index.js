@@ -13,7 +13,7 @@ export default new Vuex.Store({
     addedNewNote,
   },
   state: {
-    message: "текст сообщения store",
+    message: "Заголовок не может быть пустым!",
   },
   mutations: {},
   actions: {},

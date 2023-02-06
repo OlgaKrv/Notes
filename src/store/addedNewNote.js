@@ -1,6 +1,7 @@
 /* eslint-disable */
 export default {
   state: {
+    isNoteTitleEmpty: false,
     addedNewNote: {
       id: 0,
       title: "",
@@ -10,18 +11,24 @@ export default {
     },
   },
   mutations: {
-    setNewNote(state) {
-      state.addedNewNote.title = "scs";
+    filledTitle(state, payload) {
+      if(payload == "")
+      state.isNoteTitleEmpty = true
+      else
+      state.isNoteTitleEmpty = false
     },
   },
   actions: {
-    setNewNote({ commit }) {
-      commit("setNewNote");
+    filledTitle({ commit }, payload) {
+      commit("filledTitle", payload);
     },
   },
   getters: {
     getNewNote(state) {
       return state.addedNewNote;
+    },
+    getTitleState(state) {
+      return state.isNoteTitleEmpty;
     },
   },
 };
