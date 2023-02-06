@@ -62,7 +62,8 @@
         {
           "endOfLine": "auto"
         }
-      ]
+      ],
+      "printWidth": 180
     },
     "settings": {
       "import/resolver": {

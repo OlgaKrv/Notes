@@ -1,15 +1,18 @@
 <template>
   <div class="blank-title-message">
-    <p>Предупреждение - {{ getMes }}</p>
+    <p>Предупреждение - {{ message }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    getMes() {
-      return this.$store.getters.getMes;
-    },
+  data() {
+    return {
+      message: null,
+    };
+  },
+  created() {
+    this.message = this.$store.getters.getMes;
   },
 };
 </script>
