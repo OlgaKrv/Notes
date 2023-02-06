@@ -5,7 +5,7 @@
       <transition name="message-animation">
         <message v-if="isNoteTitleEmpty" />
       </transition>
-      <newNote />
+      <newNote :isNoteTitleEmpty="isNoteTitleEmpty" />
       <notes />
     </div>
   </div>
@@ -25,9 +25,24 @@ export default {
   data() {
     return {
       title: "Блокнот",
-      isNoteTitleEmpty: true,
+      isNoteTitleEmpty: false,
     };
   },
+  // methods: {
+  //   addNote() {
+  //     let {title, descr, type} = this.newNote;
+  //     this.notes.push({
+  //       title: title,
+  //       descr: descr,
+  //       date: new Date(Date.now()).toLocaleDateString(),
+  //       type: type,
+  //     });
+  //     // this.message = null;
+  //     this.newNote.title = "";
+  //     this.newNote.descr = "";
+  //     this.newNote.type = null;
+  //   },
+  // },
 };
 </script>
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import noteItem from "./noteItem.vue";
+import noteItem from "./NoteItem.vue";
 
 export default {
   components: {
@@ -18,7 +18,6 @@ export default {
   },
   created() {
     this.noteList = this.$store.getters.getNoteList;
-    console.log(this.noteList);
   },
 };
 </script>
