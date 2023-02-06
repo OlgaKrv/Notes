@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div class="prioritis">
     <div
@@ -74,7 +75,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" setup>
 .prioritis {
   padding-top: 40px;
   display: flex;
@@ -104,6 +105,7 @@ export default {
   width: 23%;
   padding: 18px;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.25);
+  background-color: #76d589;
   &:hover {
     box-shadow: 10px 30px 30px rgba(51, 153, 66, 0.3);
     transform: translate(0, -6px);
@@ -113,7 +115,8 @@ export default {
 input:not(input:nth-child(2)) {
   cursor: pointer;
 }
-.prioritis_type:nth-child(1) {
+</style>
+<!-- .prioritis_type:nth-child(1) {
   background-color: #76d589;
 }
 .prioritis_type:nth-child(2) {
@@ -124,5 +127,4 @@ input:not(input:nth-child(2)) {
 }
 .prioritis_type:nth-child(4) {
   background-color: #e48c8c;
-}
-</style>
+} -->

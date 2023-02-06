@@ -9,5 +9,18 @@ export default {
   },
   mutations: {},
   actions: {},
-  getters: {},
+  getters: {
+    getСolorForNeed(state, num) {
+      return state.colors[num].value;
+    },
+    getСolorForPostponing(state) {
+      return state.colors[1].value;
+    },
+    getСolorForDelegation(state) {
+      return state.colors[2].value;
+    },
+    getСolorForRemoval(state) {
+      return state.colors[3].value;
+    },
+  },
 };
