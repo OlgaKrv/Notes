@@ -3,29 +3,32 @@
     <div class="project-title">
       <!-- blank title message -->
       <transition name="message-animation">
-        <message v-if="isNoteTitleEmpty" :blankTitleMessage="blankTitleMessage"/>
+        <message v-if="isNoteTitleEmpty" />
       </transition>
-
+      <newNote />
+      <notes />
     </div>
   </div>
 </template>
 
 <script>
-import message from '@/components/Message'
+import message from "./components/Message.vue";
+import newNote from "./components/NewNote.vue";
+import notes from "./components/Notes.vue";
 
 export default {
   components: {
-    message
+    message,
+    newNote,
+    notes,
   },
   data() {
-    return{
-      title: 'Блокнот',
-      isNoteTitleEmpty: false,
-      blankTitleMessage: ""
-    }
-  }
-}
-
+    return {
+      title: "Блокнот",
+      isNoteTitleEmpty: true,
+    };
+  },
+};
 </script>
 
 <style>
@@ -38,12 +41,11 @@ export default {
   margin-top: 60px;
 }
 
-
 .message-animation-enter-active {
-  animation: message-animation-in .5s ease-out both;
+  animation: message-animation-in 0.5s ease-out both;
 }
 .message-animation-leave-active {
-  animation: message-animation-in .5s reverse ease-in both;
+  animation: message-animation-in 0.5s reverse ease-in both;
 }
 @keyframes message-animation-in {
   0% {

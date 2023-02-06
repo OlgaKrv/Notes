@@ -1,7 +1,8 @@
 // default
-import Vue from 'vue'
-import Router from 'vue-router'
+/* eslint-disable */ 
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 // Pages

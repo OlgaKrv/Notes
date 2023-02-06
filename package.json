@@ -2,6 +2,9 @@
   "name": "todo-project",
   "version": "0.1.0",
   "private": true,
+  "eslintIgnore": [
+    "*.json"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -20,7 +23,13 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-nuxt": "^1.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.0.3",
+    "node-sass": "^8.0.0",
+    "prettier": "^2.8.3",
+    "sass-loader": "^13.2.0",
     "vue-router": "^3.6.5",
     "vue-template-compiler": "^2.6.14"
   },
@@ -31,6 +40,7 @@
     },
     "extends": [
       "airbnb",
+      "prettier",
       "plugin:vue/base",
       "eslint:recommended",
       "plugin:vue/essential",
@@ -45,7 +55,15 @@
     "plugins": [
       "vue"
     ],
-    "rules": {},
+    "rules": {
+      "vue/multi-word-component-names": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    },
     "settings": {
       "import/resolver": {
         "nuxt": {

@@ -1,18 +1,17 @@
 <template>
   <div class="blank-title-message">
-    <p>Предупреждение - {{ blankTitleMessage }}</p>
+    <p>Предупреждение - {{ getMes }}</p>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      blankTitleMessage: {
-        type: String,
-        required: true
-      }
-    }
-  }
+export default {
+  computed: {
+    getMes() {
+      return this.$store.getters.getMes;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
