@@ -36,7 +36,11 @@ export default {
   mutations: {
     getNewNote(state, payload) {
       state.noteList.push({
-        payload,
+        id: payload.id,
+        title: payload.title,
+        descr: payload.descr,
+        date: payload.date,
+        type: payload.type,
       });
     },
   },
