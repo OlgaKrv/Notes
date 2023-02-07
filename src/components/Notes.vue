@@ -7,16 +7,15 @@
       @search="search = $event"
     />
     <!-- icons controls -->
-    <div class="icons" @click="changeIconColor">
+    <div class="icons">
       <positionIcon :isSelected="gridPosition" name="grid" />
       <positionIcon :isSelected="gridPosition" name="column" />
     </div>
     <noteItem
+      :note="note"
       v-for="note in getAllNote"
       :key="note.id"
-      :note="note"
       :style="noteStyle(note.type)"
-      :grid="gridPosition"
     />
   </div>
 </template>

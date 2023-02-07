@@ -1,8 +1,7 @@
 <template>
   <div class="note">
-    <div class="note_header item_text" :class="{ full: !grid }">
-      <input v-if="showInput" @click="showInputOnClick" type="text" />
-      <p v-else @click="showInputOnClick">{{ note.title }}</p>
+    <div class="note_header item_text">
+      <p>{{ note.title }}</p>
       <p class="note_delete" @click="removeNote(0)">x</p>
     </div>
     <div class="note_body">

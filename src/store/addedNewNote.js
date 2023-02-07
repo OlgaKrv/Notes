@@ -11,11 +11,6 @@ export default {
       state.isNoteTitleEmpty = false
     },
   },
-  actions: {
-    // filledTitle({ commit }, payload) {
-    //   commit("filledTitle", payload);
-    // },
-  },
   getters: { 
     getTitleState(state) {
       return state.isNoteTitleEmpty;
