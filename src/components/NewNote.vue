@@ -5,7 +5,7 @@
       <input v-model="newTitle" type="text" />
       <label class="item_text">Описание</label>
       <textarea v-model="newDescription"></textarea>
-      <priorities @(select-1)="getNewNote.type" />
+      <priorities @(select-1)="addNewNote.type" />
       <button class="btn btn_primary" @click="addNote">Новая заметка</button>
     </div>
   </div>
@@ -25,18 +25,22 @@ export default {
       newDescription: "",
     };
   },
-  computed: mapGetters(["getAllNote"]),
+  computed: {
+    ...mapGetters(["getAllNote", "getTitleState"]),
+  },
   methods: {
-    ...mapMutations(["getNewNote", "filledTitle"]),
+    ...mapMutations(["addNewNote", "filledTitle"]),
     addNote() {
       this.filledTitle(this.newTitle);
-      this.getNewNote({
-        id: this.getAllNote.length - 1,
-        title: this.newTitle,
-        description: this.newDescription,
-        date: new Date(Date.now()).toLocaleDateString(),
-        type: 1,
-      });
+      if (!this.getTitleState) {
+        this.addNewNote({
+          id: this.getAllNote.length - 1,
+          title: this.newTitle,
+          description: this.newDescription,
+          date: new Date(Date.now()).toLocaleDateString(),
+          type: 1,
+        });
+      }
       this.newTitle = "";
       this.newDescription = "";
     },

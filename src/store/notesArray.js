@@ -37,7 +37,7 @@ export default {
     ],
   },
   mutations: {
-    getNewNote(state, newNoteIndex) {
+    addNewNote(state, newNoteIndex) {
       state.noteList.push(newNoteIndex);
     },
     removeNote(state, selectedNoteIndex) {
