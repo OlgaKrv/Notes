@@ -35,26 +35,19 @@ export default {
     isSelected() {
       this.isSelectedPosition = this.isSelected;
       /* eslint-disable */
-      this.iconColor =
-        this.name === "grid"
-          ? this.isSelectedPosition
-            ? "#339942"
-            : "#71bf7c"
-          : this.isSelectedPosition
-          ? "#71bf7c"
-          : "#339942";
+      this.iconColor = this.name === "grid" ? this.isSelectedPosition ? "#339942" : "#71bf7c" : this.isSelectedPosition ? "#71bf7c" : "#339942";
     },
   },
 };
 </script>
 
 <style lang="scss">
-.note_header {
+.icons {
   svg {
     margin-right: 15px;
     cursor: pointer;
     &:last-child {
-      margin-right: 0;
+      margin-right: 0px;
     }
     &:hover {
       transform: scale(1.2);

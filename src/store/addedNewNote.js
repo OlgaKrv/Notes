@@ -2,31 +2,21 @@
 export default {
   state: {
     isNoteTitleEmpty: false,
-    addedNewNote: {
-      id: 0,
-      title: "",
-      description: "",
-      date: new Date(Date.now()).toLocaleDateString(),
-      type: 0,
-    },
   },
   mutations: {
-    filledTitle(state, payload) {
-      if(payload == "")
+    filledTitle(state, titleText) {
+      if(titleText == "")
       state.isNoteTitleEmpty = true
       else
       state.isNoteTitleEmpty = false
     },
   },
   actions: {
-    filledTitle({ commit }, payload) {
-      commit("filledTitle", payload);
-    },
+    // filledTitle({ commit }, payload) {
+    //   commit("filledTitle", payload);
+    // },
   },
-  getters: {
-    getNewNote(state) {
-      return state.addedNewNote;
-    },
+  getters: { 
     getTitleState(state) {
       return state.isNoteTitleEmpty;
     },

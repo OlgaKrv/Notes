@@ -3,14 +3,15 @@
     <div class="app-title">{{ title }}</div>
     <!-- blank title message -->
     <transition name="message-animation">
-      <message v-if="isNoteTitleEmpty" />
+      <message v-if="getTitleState" />
     </transition>
-    <newNote :isNoteTitleEmpty="isNoteTitleEmpty" />
+    <newNote />
     <notes />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import message from "./components/Message.vue";
 import newNote from "./components/NewNote.vue";
 import notes from "./components/Notes.vue";
@@ -26,11 +27,7 @@ export default {
       title: "Блокнот",
     };
   },
-  computed: {
-    isNoteTitleEmpty() {
-      return this.$store.getters.getTitleState;
-    },
-  },
+  computed: mapGetters(["getTitleState"]),
 };
 </script>
 

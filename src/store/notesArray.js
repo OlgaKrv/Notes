@@ -37,23 +37,23 @@ export default {
     ],
   },
   mutations: {
-    getNewNote(state, payload) {
-      state.noteList.push({
-        id: payload.id,
-        title: payload.title,
-        description: payload.description,
-        date: payload.date,
-        type: payload.type,
-      });
+    getNewNote(state, newNoteIndex) {
+      state.noteList.push(newNoteIndex);
+    },
+    removeNote(state, selectedNoteIndex) {
+      state.noteList.splice(selectedNoteIndex, 1);
+      for (let i = 0; i + 1; i < state.noteList.length) {
+        state.noteList[i].id = i;
+      }
     },
   },
   actions: {
-    getNewNote({ commit }, payload) {
-      commit("getNewNote", payload);
+    removeNote({ commit }, selectedNoteIndex) {
+      commit("removeNote", selectedNoteIndex);
     },
   },
   getters: {
-    getNoteList(state) {
+    getAllNote(state) {
       return state.noteList;
     },
   },

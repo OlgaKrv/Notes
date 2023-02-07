@@ -1,7 +1,14 @@
 <template>
   <div class="note">
-    <h1>{{ note.title }}</h1>
-    <div>{{ note.description }}</div>
+    <div class="note_header item_text" :class="{ full: !grid }">
+      <input v-if="showInput" @click="showInputOnClick" type="text" />
+      <p v-else @click="showInputOnClick">{{ note.title }}</p>
+      <p class="note_delete" @click="removeNote(0)">x</p>
+    </div>
+    <div class="note_body">
+      <p>{{ note.description }}</p>
+      <span class="small_text">{{ note.date }}</span>
+    </div>
   </div>
 </template>
 
@@ -13,6 +20,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    removeNote(index) {
+      this.$store.dispatch("removeNote", index);
+    },
+  },
 };
 </script>
 
@@ -20,7 +32,7 @@ export default {
 .note {
   width: 48%;
   padding: 18px 20px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   background-color: #fff;
   transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   &:hover {
@@ -32,5 +44,8 @@ export default {
     width: 100%;
     text-align: center;
   }
+}
+.note_delete {
+  cursor: pointer;
 }
 </style>
