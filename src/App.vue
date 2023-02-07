@@ -3,7 +3,7 @@
     <div class="app-title">{{ title }}</div>
     <!-- blank title message -->
     <transition name="message-animation">
-      <message v-if="getTitleState" />
+      <message v-if="isNoteTitleEmpty" />
     </transition>
     <newNote />
     <notes />
@@ -27,7 +27,7 @@ export default {
       title: "Блокнот",
     };
   },
-  computed: mapGetters(["getTitleState"]),
+  computed: mapGetters(["isNoteTitleEmpty"]),
 };
 </script>
 

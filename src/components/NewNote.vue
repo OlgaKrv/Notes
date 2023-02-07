@@ -26,19 +26,23 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getAllNote", "getTitleState"]),
+    ...mapGetters([
+      "getAllNote",
+      "isNoteTitleEmpty",
+      "getPrioritySelectedNote",
+    ]),
   },
   methods: {
     ...mapMutations(["addNewNote", "filledTitle"]),
     addNote() {
       this.filledTitle(this.newTitle);
-      if (!this.getTitleState) {
+      if (!this.isNoteTitleEmpty) {
         this.addNewNote({
           id: this.getAllNote.length - 1,
           title: this.newTitle,
           description: this.newDescription,
           date: new Date(Date.now()).toLocaleDateString(),
-          type: 1,
+          type: this.getPrioritySelectedNote,
         });
       }
       this.newTitle = "";

@@ -2,6 +2,7 @@
 export default {
   state: {
     isNoteTitleEmpty: false,
+    prioritySelectedNote: 0,
   },
   mutations: {
     filledTitle(state, titleText) {
@@ -10,10 +11,16 @@ export default {
       else
       state.isNoteTitleEmpty = false
     },
+    selectNotePriority(state, numberSelectedPriorities) {
+      state.prioritySelectedNote = numberSelectedPriorities
+    }
   },
   getters: { 
-    getTitleState(state) {
+    isNoteTitleEmpty(state) {
       return state.isNoteTitleEmpty;
+    },
+    getPrioritySelectedNote(state) {
+      return state.prioritySelectedNote;
     },
   },
 };

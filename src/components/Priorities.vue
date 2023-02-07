@@ -5,6 +5,7 @@
       class="prioritis_type"
       v-for="type in types"
       :key="type.id"
+      :style="priorityStyle(type.id)"
       @mouseover="type.show = true"
       @mouseout="type.show = false"
     >
@@ -14,7 +15,7 @@
           type="radio"
           :value="type"
           v-model="selectedType"
-          @click="prioritySelection"
+          @change="prioritySelection(selectedType.id)"
         />
         <div>{{ type.title }}</div>
       </div>
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
@@ -69,8 +72,17 @@ export default {
       ],
     };
   },
+  computed: mapGetters(["getСolorForNeed"]),
   methods: {
-    prioritySelection() {},
+    ...mapMutations(["selectNotePriority"]),
+    priorityStyle(num) {
+      return {
+        "background-color": this.getСolorForNeed(num),
+      };
+    },
+    prioritySelection(selectedTypeNum) {
+      this.selectNotePriority(selectedTypeNum);
+    },
   },
 };
 </script>
@@ -105,7 +117,6 @@ export default {
   width: 23%;
   padding: 18px;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.25);
-  background-color: #76d589;
   &:hover {
     box-shadow: 10px 30px 30px rgba(51, 153, 66, 0.3);
     transform: translate(0, -6px);
