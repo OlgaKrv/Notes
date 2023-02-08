@@ -3,11 +3,7 @@
   <div>
     <div class="note_header">
       <!-- search -->
-      <!-- <search
-        :value="search"
-        placeholder="Найдите небходимую заметку"
-        @search="search = $event"
-      /> -->
+      <!-- <search /> -->
       <!-- icons controls -->
       <div class="icons" @click="changeIconColor">
         <positionIcon :isSelected="gridPosition" name="grid" />

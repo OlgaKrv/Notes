@@ -41,12 +41,15 @@ export default {
     addNewNote(state, newNoteIndex) {
       state.noteList.push(newNoteIndex);
     },
-    // editNotes(state, newNotes) {
-    //   if (newNotes)
-    //     state.noteList = state.noteList.filter((item) => {
-    //       if (item.toLowerCase().indexOf(newNotes) !== -1) return item;
-    //     });
-    // },
+    editNotes(state, newNotes) {
+      if (newNotes)
+        state.noteList = state.noteList.filter((item) => {
+          return (
+            item.toLowerCase().title.includes(newNotes.toLowerCase()) ||
+            item.toLowerCase().description.includes(newNotes.toLowerCase())
+          );
+        });
+    },
     removeNote(state, selectedNoteIndex) {
       state.noteList.splice(selectedNoteIndex, 1);
       state.noteList = state.noteList.map((note) =>

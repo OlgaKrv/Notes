@@ -1,11 +1,10 @@
 <template>
   <div class="wrapper__search">
-    <!-- Search input -->
     <input
       class="small_text"
       type="text"
-      :placeholder="placeholder"
-      <!-- v-model="search" -->
+      placeholder="Найдите небходимую заметку"
+      v-model="searchValue"
     />
   </div>
 </template>
@@ -14,20 +13,9 @@
 import { mapGetters, mapMutations } from "vuex";
 
 export default {
-  props: {
-    value: {
-      type: String,
-      required: true,
-    },
-    placeholder: {
-      type: String,
-      default: "Search",
-    },
-  },
   data() {
     return {
-      search: this.value,
-      array: [],
+      searchValue: "",
     };
   },
   computed: {
@@ -37,14 +25,14 @@ export default {
     ...mapMutations(["editNotes"]),
   },
   watch: {
-    search() {
-      // this.editNotes(val);
+    searchValue(val) {
+      this.editNotes(val);
     },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 svg {
   color: #e4e4e4;
 }
