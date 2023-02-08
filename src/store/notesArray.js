@@ -35,6 +35,7 @@ export default {
         type: 3,
       },
     ],
+    recalculatedId: 0,
   },
   mutations: {
     addNewNote(state, newNoteIndex) {
@@ -48,9 +49,9 @@ export default {
     // },
     removeNote(state, selectedNoteIndex) {
       state.noteList.splice(selectedNoteIndex, 1);
-      for (let i = selectedNoteIndex; i < state.noteList.length; i + 1) {
-        state.noteList[i].id = i;
-      }
+      state.noteList = state.noteList.map((note) =>
+        note.id < selectedNoteIndex ? note : { ...note, id: note.id - 1 }
+      );
     },
   },
   actions: {

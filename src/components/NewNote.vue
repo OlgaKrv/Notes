@@ -38,7 +38,7 @@ export default {
       this.filledTitle(this.newTitle);
       if (!this.isNoteTitleEmpty) {
         this.addNewNote({
-          id: this.getAllNote.length - 1,
+          id: this.getAllNote.length,
           title: this.newTitle,
           description: this.newDescription,
           date: new Date(Date.now()).toLocaleDateString(),
