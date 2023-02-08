@@ -67,4 +67,7 @@ export default {
     transform: scale(1);
   }
 }
+.minimum-size {
+  min-width: 220px;
+}
 </style>

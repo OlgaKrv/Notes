@@ -40,9 +40,15 @@ export default {
     addNewNote(state, newNoteIndex) {
       state.noteList.push(newNoteIndex);
     },
+    // editNotes(state, newNotes) {
+    //   if (newNotes)
+    //     state.noteList = state.noteList.filter((item) => {
+    //       if (item.toLowerCase().indexOf(newNotes) !== -1) return item;
+    //     });
+    // },
     removeNote(state, selectedNoteIndex) {
       state.noteList.splice(selectedNoteIndex, 1);
-      for (let i = 0; i + 1; i < state.noteList.length) {
+      for (let i = selectedNoteIndex; i < state.noteList.length; i + 1) {
         state.noteList[i].id = i;
       }
     },

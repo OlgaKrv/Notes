@@ -20,35 +20,37 @@ export default {
       default: "grid",
     },
     isSelected: {
-      type: Object,
+      type: Boolean,
     },
   },
+  /* eslint-disable */
   data() {
     return {
       path: icons[this.name],
-      isSelectedPosition: this.name === "grid",
-      iconColor: this.name === "grid" ? "#339942" : "#71bf7c",
-    };
+      isSelectedPosition: (this.name == "grid"),
+      iconColor: ((this.name == "grid") ? "#339942" : "#71bf7c"),
+    }
   },
-  methods: {},
   watch: {
-    isSelected() {
+    isSelected() {      
       this.isSelectedPosition = this.isSelected;
-      /* eslint-disable */
-      this.iconColor = this.name === "grid" ? this.isSelectedPosition ? "#339942" : "#71bf7c" : this.isSelectedPosition ? "#71bf7c" : "#339942";
-    },
-  },
-};
+      this.iconColor = (this.name == "grid") ?
+      this.isSelectedPosition ? "#339942" : "#71bf7c" :
+      this.isSelectedPosition ? "#71bf7c" : "#339942";
+    }
+  }
+}
 </script>
 
 <style lang="scss">
-.icons {
-  svg {
+.note_header { 
+  svg 
+  {
     margin-right: 15px;
-    cursor: pointer;
+    cursor:pointer;
     &:last-child {
-      margin-right: 0px;
-    }
+      margin-right: 0;
+    }      
     &:hover {
       transform: scale(1.2);
       transition-delay: 0.2s !important;

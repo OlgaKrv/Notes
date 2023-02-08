@@ -5,12 +5,14 @@
       class="small_text"
       type="text"
       :placeholder="placeholder"
-      v-model="search"
+      <!-- v-model="search" -->
     />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   props: {
     value: {
@@ -23,11 +25,20 @@ export default {
     },
   },
   data() {
-    return { search: this.value };
+    return {
+      search: this.value,
+      array: [],
+    };
+  },
+  computed: {
+    ...mapGetters(["getAllNote"]),
+  },
+  methods: {
+    ...mapMutations(["editNotes"]),
   },
   watch: {
-    search(val) {
-      this.$emit("search", val);
+    search() {
+      // this.editNotes(val);
     },
   },
 };

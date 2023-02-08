@@ -5,7 +5,7 @@
       <input v-model="newTitle" type="text" />
       <label class="item_text">Описание</label>
       <textarea v-model="newDescription"></textarea>
-      <priorities @(select-1)="addNewNote.type" />
+      <priorities />
       <button class="btn btn_primary" @click="addNote">Новая заметка</button>
     </div>
   </div>

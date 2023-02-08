@@ -127,15 +127,3 @@ input:not(input:nth-child(2)) {
   cursor: pointer;
 }
 </style>
-<!-- .prioritis_type:nth-child(1) {
-  background-color: #76d589;
-}
-.prioritis_type:nth-child(2) {
-  background-color: #64d2da;
-}
-.prioritis_type:nth-child(3) {
-  background-color: #e8ce86;
-}
-.prioritis_type:nth-child(4) {
-  background-color: #e48c8c;
-} -->
