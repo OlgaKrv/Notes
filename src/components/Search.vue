@@ -19,7 +19,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getAllNote']),
+    ...mapGetters(['allNotes']),
   },
   methods: {
     ...mapMutations(['editNotes']),

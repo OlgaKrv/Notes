@@ -10,12 +10,12 @@
     </div>
     <div class="wrapper__note">
       <noteItem
-        v-for="note in getAllNote"
-        :key="note.id"
+        v-for="noteItem in allNotes"
+        :key="noteItem.id"
         class="note minimum-size"
         :class="{ full: gridPosition == 'column' }"
-        :note="note"
-        :style="noteStyle(note.type)"
+        :noteItem="noteItem"
+        :style="noteStyle(noteItem.type)"
       />
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getAllNote', 'getColorForNeed']),
+    ...mapGetters(['allNotes', 'getColorForNeed']),
   },
   methods: {
     noteStyle(num) {

@@ -85,19 +85,19 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getAllNote(state) {
+    allNotes(state) {
       return state.noteList
     },
-    getMes(state) {
+    inputErrorMessage(state) {
       return state.message
     },
     isNoteTitleEmpty(state) {
       return state.isNoteTitleEmpty
     },
-    getPrioritySelectedNote(state) {
+    selectedNotePriority(state) {
       return state.prioritySelectedNote
     },
-    getColorForNeed: (state) => (num) => {
+    noteColorSelection: (state) => (num) => {
       return state.colors[num].color
     },
   },

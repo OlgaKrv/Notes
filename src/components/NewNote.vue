@@ -26,11 +26,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'getAllNote',
-      'isNoteTitleEmpty',
-      'getPrioritySelectedNote',
-    ]),
+    ...mapGetters(['allNotes', 'isNoteTitleEmpty', 'selectedNotePriority']),
   },
   methods: {
     ...mapMutations(['addNewNote', 'filledTitle']),
@@ -38,11 +34,11 @@ export default {
       this.filledTitle(this.newTitle)
       if (!this.isNoteTitleEmpty) {
         this.addNewNote({
-          id: this.getAllNote.length,
+          id: this.allNotes.length,
           title: this.newTitle,
           description: this.newDescription,
           date: new Date(Date.now()).toLocaleDateString(),
-          type: this.getPrioritySelectedNote,
+          type: this.selectedNotePriority,
         })
       }
       this.newTitle = ''

@@ -12,7 +12,7 @@ export default {
     }
   },
   created() {
-    this.message = this.$store.getters.getMes
+    this.message = this.$store.getters.inputErrorMessage
   },
 }
 </script>

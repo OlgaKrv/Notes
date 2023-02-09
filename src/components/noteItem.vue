@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="note_header item_text">
-      <p>{{ note.title }}</p>
-      <button class="note_delete" @click="removeNote(note.id)">x</button>
+      <p>{{ noteItem.title }}</p>
+      <button class="note_delete" @click="removeNote(noteItem.id)">x</button>
     </div>
     <div class="note_body">
-      <p>{{ note.description }}</p>
-      <span class="small_text">{{ note.date }}</span>
+      <p>{{ noteItem.description }}</p>
+      <span class="small_text">{{ noteItem.date }}</span>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import { mapMutations } from 'vuex'
 
 export default {
   props: {
-    note: {
+    noteItem: {
       type: Object,
       required: true,
     },
