@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -22,9 +22,9 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["removeNote"]),
+    ...mapMutations(['removeNote']),
   },
-};
+}
 </script>
 
 <style lang="scss">

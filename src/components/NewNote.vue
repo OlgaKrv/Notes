@@ -4,7 +4,7 @@
       <label class="item_text">Заголовок</label>
       <input v-model="newTitle" type="text" />
       <label class="item_text">Описание</label>
-      <textarea v-model="newDescription"></textarea>
+      <textarea v-model="newDescription" />
       <priorities />
       <button class="btn btn_primary" @click="addNote">Новая заметка</button>
     </div>
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import priorities from "./Priorities.vue";
+import { mapGetters, mapMutations } from 'vuex'
+import priorities from './Priorities.vue'
 
 export default {
   components: {
@@ -21,21 +21,21 @@ export default {
   },
   data() {
     return {
-      newTitle: "",
-      newDescription: "",
-    };
+      newTitle: '',
+      newDescription: '',
+    }
   },
   computed: {
     ...mapGetters([
-      "getAllNote",
-      "isNoteTitleEmpty",
-      "getPrioritySelectedNote",
+      'getAllNote',
+      'isNoteTitleEmpty',
+      'getPrioritySelectedNote',
     ]),
   },
   methods: {
-    ...mapMutations(["addNewNote", "filledTitle"]),
+    ...mapMutations(['addNewNote', 'filledTitle']),
     addNote() {
-      this.filledTitle(this.newTitle);
+      this.filledTitle(this.newTitle)
       if (!this.isNoteTitleEmpty) {
         this.addNewNote({
           id: this.getAllNote.length,
@@ -43,18 +43,19 @@ export default {
           description: this.newDescription,
           date: new Date(Date.now()).toLocaleDateString(),
           type: this.getPrioritySelectedNote,
-        });
+        })
       }
-      this.newTitle = "";
-      this.newDescription = "";
+      this.newTitle = ''
+      this.newDescription = ''
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
 .new-note {
   text-align: center;
+
   input:nth-child(2),
   textarea {
     width: 100%;

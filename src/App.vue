@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="project-wrapper">
-    <div class="app-title">{{ title }}</div>
+    <div class="app-title">
+      {{ title }}
+    </div>
     <!-- blank title message -->
     <transition name="message-animation">
       <message v-if="isNoteTitleEmpty" />
@@ -11,10 +13,10 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import message from "./components/Message.vue";
-import newNote from "./components/NewNote.vue";
-import notes from "./components/Notes.vue";
+import { mapGetters } from 'vuex'
+import message from './components/Message.vue'
+import newNote from './components/NewNote.vue'
+import notes from './components/Notes.vue'
 
 export default {
   components: {
@@ -24,11 +26,11 @@ export default {
   },
   data() {
     return {
-      title: "Блокнот",
-    };
+      title: 'Блокнот',
+    }
   },
-  computed: mapGetters(["isNoteTitleEmpty"]),
-};
+  computed: mapGetters(['isNoteTitleEmpty']),
+}
 </script>
 
 <style>

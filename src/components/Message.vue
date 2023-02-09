@@ -9,12 +9,12 @@ export default {
   data() {
     return {
       message: null,
-    };
+    }
   },
   created() {
-    this.message = this.$store.getters.getMes;
+    this.message = this.$store.getters.getMes
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

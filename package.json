@@ -28,7 +28,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.0.3",
     "node-sass": "^8.0.0",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "sass-loader": "^13.2.0",
     "vue-router": "^3.6.5",
     "vue-template-compiler": "^2.6.14"
@@ -40,12 +40,12 @@
     },
     "extends": [
       "airbnb",
+      "plugin:prettier/recommended",
       "prettier",
+      "eslint-config-prettier",
       "plugin:vue/base",
       "eslint:recommended",
-      "plugin:vue/essential",
-      "plugin:prettier/recommended",
-      "eslint-config-prettier"
+      "plugin:vue/essential"
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser",
@@ -53,18 +53,100 @@
       "sourceType": "module"
     },
     "plugins": [
-      "vue"
+      "vue",
+      "prettier"
     ],
     "rules": {
       "vue/multi-word-component-names": 0,
+      "vue/component-name-in-template-casing": [
+        "error",
+        "kebab-case",
+        {
+          "registeredComponentsOnly": true
+        }
+      ],
+      "vue/no-irregular-whitespace": [
+        "error",
+        {
+          "skipStrings": true,
+          "skipComments": false,
+          "skipRegExps": false,
+          "skipTemplates": false,
+          "skipHTMLAttributeValues": false,
+          "skipHTMLTextContents": false
+        }
+      ],
+      "vue/no-dupe-keys": [
+        "error",
+        {
+          "groups": []
+        }
+      ],
       "prettier/prettier": [
         "error",
         {
-          "endOfLine": "auto"
+          "endOfLine": "auto",
+          "useTabs": false,
+          "semi": false,
+          "singleQuote": true,
+          "trailingComma": "all"
         }
       ],
-      "printWidth": 100,
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "no-console": "error",
+      "no-debugger": "error",
+      "no-plusplus": "off",
+      "no-mixed-operators": [
+        "error",
+        {
+          "groups": [
+            [
+              "+",
+              "-",
+              "*",
+              "/",
+              "%",
+              "**"
+            ],
+            [
+              "&",
+              "|",
+              "^",
+              "~",
+              "<<",
+              ">>",
+              ">>>"
+            ],
+            [
+              "==",
+              "!=",
+              "===",
+              "!==",
+              ">",
+              ">=",
+              "<",
+              "<="
+            ],
+            [
+              "&&",
+              "||"
+            ],
+            [
+              "in",
+              "instanceof"
+            ]
+          ],
+          "allowSamePrecedence": true
+        }
+      ],
+      "no-bitwise": [
+        "error",
+        {
+          "allow": [
+            "~"
+          ]
+        }
+      ]
     },
     "settings": {
       "import/resolver": {

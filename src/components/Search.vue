@@ -1,35 +1,35 @@
 <template>
   <div class="wrapper__search">
     <input
+      v-model="searchValue"
       class="small_text"
       type="text"
       placeholder="Найдите небходимую заметку"
-      v-model="searchValue"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   data() {
     return {
-      searchValue: "",
-    };
+      searchValue: '',
+    }
   },
   computed: {
-    ...mapGetters(["getAllNote"]),
+    ...mapGetters(['getAllNote']),
   },
   methods: {
-    ...mapMutations(["editNotes"]),
+    ...mapMutations(['editNotes']),
   },
   watch: {
     searchValue(val) {
-      this.editNotes(val);
+      this.editNotes(val)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
