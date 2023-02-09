@@ -74,12 +74,12 @@ export default {
       ],
     }
   },
-  computed: mapGetters(['getColorForNeed']),
+  computed: mapGetters(['noteColorSelection']),
   methods: {
     ...mapMutations(['selectNotePriority']),
     priorityStyle(num) {
       return {
-        'background-color': this.getColorForNeed(num),
+        'background-color': this.noteColorSelection(num),
       }
     },
     prioritySelection(selectedTypeNum) {

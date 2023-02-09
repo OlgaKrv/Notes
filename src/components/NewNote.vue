@@ -26,13 +26,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allNotes', 'isNoteTitleEmpty', 'selectedNotePriority']),
+    ...mapGetters(['allNotes', 'selectedNotePriority']),
   },
   methods: {
     ...mapMutations(['addNewNote', 'filledTitle']),
     addNote() {
       this.filledTitle(this.newTitle)
-      if (!this.isNoteTitleEmpty) {
+      if (this.newTitle !== '') {
         this.addNewNote({
           id: this.allNotes.length,
           title: this.newTitle,

@@ -40,12 +40,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allNotes', 'getColorForNeed']),
+    ...mapGetters(['allNotes', 'noteColorSelection']),
   },
   methods: {
     noteStyle(num) {
       return {
-        'background-color': this.getColorForNeed(num),
+        'background-color': this.noteColorSelection(num),
       }
     },
   },
