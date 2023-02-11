@@ -42,8 +42,6 @@ export default new Vuex.Store({
       },
     ],
     recalculatedId: 0,
-    message: 'Заголовок не может быть пустым!',
-    isNoteTitleEmpty: false,
     prioritySelectedNote: 0,
     colors: [
       { value: 0, color: '#76d589' },
@@ -71,28 +69,17 @@ export default new Vuex.Store({
         note.id < selectedNoteIndex ? note : { ...note, id: note.id - 1 },
       )
     },
-    filledTitle(state, titleText) {
-      if (titleText === '') state.isNoteTitleEmpty = true
-      else state.isNoteTitleEmpty = false
-    },
     selectNotePriority(state, numberSelectedPriorities) {
       state.prioritySelectedNote = numberSelectedPriorities
     },
   },
-  actions: {
-    removeNote({ commit }, selectedNoteIndex) {
-      commit('removeNote', selectedNoteIndex)
-    },
-  },
+  actions: {},
   getters: {
     allNotes(state) {
       return state.noteList
     },
     inputErrorMessage(state) {
       return state.message
-    },
-    isNoteTitleEmpty(state) {
-      return state.isNoteTitleEmpty
     },
     selectedNotePriority(state) {
       return state.prioritySelectedNote

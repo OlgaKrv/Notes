@@ -4,9 +4,6 @@
       {{ title }}
     </div>
     <!-- blank title message -->
-    <transition name="message-animation">
-      <message v-if="isNoteTitleEmpty" />
-    </transition>
     <newNote />
     <notes />
   </div>
@@ -14,13 +11,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import message from './components/Message.vue'
 import newNote from './components/NewNote.vue'
 import notes from './components/Notes.vue'
 
 export default {
   components: {
-    message,
     newNote,
     notes,
   },
@@ -52,23 +47,6 @@ export default {
   color: #339942;
 }
 
-.message-animation-enter-active {
-  animation: message-animation-in 0.5s ease-out both;
-}
-.message-animation-leave-active {
-  animation: message-animation-in 0.5s reverse ease-in both;
-}
-@keyframes message-animation-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 .minimum-size {
   min-width: 220px;
 }
